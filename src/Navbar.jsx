@@ -3,13 +3,13 @@ import { useLanguage } from "./LocaliseContext";
 
 export const Navbar = () => {
   const { changeTheme } = useTheme();
-  const { changeLanguage } = useLanguage();
+  const { setLanguage } = useLanguage();
 
   return (
     <div>
       <button onClick={() => changeTheme()}>Toggle Theme</button>
-      <button onClick={() => changeLanguage()}>English</button>
-      <button onClick={() => changeLanguage()}>मराठी</button>
+      <button onClick={() => setLanguage("english")}>English</button>
+      <button onClick={() => setLanguage("marathi")}>मराठी</button>
     </div>
   );
 };

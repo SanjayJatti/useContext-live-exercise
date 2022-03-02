@@ -4,10 +4,9 @@ const LocaliseContext = createContext();
 
 const LocalisationProvider = ({ children }) => {
   const [language, setLanguage] = useState("english");
-  const changeLanguage = () =>
-    setLanguage((language) => (language === "english" ? "marathi" : "english"));
+
   return (
-    <LocaliseContext.Provider value={(language, changeLanguage)}>
+    <LocaliseContext.Provider value={{ language, setLanguage }}>
       {children}
     </LocaliseContext.Provider>
   );
