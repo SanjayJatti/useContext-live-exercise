@@ -1,22 +1,25 @@
 import "./styles.css";
-
-export function ProductListing() {
-  return (
-    ['1', '2', '3', '4'].map(item => (<h2>Product {item}</h2>))
-  )
-}
-
-export function Cart() {
-  return <h1> Items in cart </h1>
-}
+import { Cart } from "./Cart";
+import { ProductListing } from "./ProductListing";
+import { Navbar } from "./Navbar";
+import { useTheme } from "./ThemeContext";
 
 export default function App() {
+  const { theme } = useTheme();
   return (
-    <div className="App">
+    <div
+      style={{
+        backgroundColor: theme === "light" ? "white" : "black",
+        color: theme === "light" ? "black" : "white"
+      }}
+      className="App"
+    >
       <h1 className="app-header">eCommerce</h1>
       <div className="app-body">
+        <Navbar />
         <Cart />
-        <ProductListing /></div>
+        <ProductListing />
+      </div>
     </div>
   );
 }

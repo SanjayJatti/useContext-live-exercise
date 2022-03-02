@@ -1,15 +1,18 @@
+import { createContext, useContext, useState } from "react";
 
-import {createContext} from "react";
+const CartContext = createContext();
 
-const CartContext = createContext()
+const CartProvider = ({ children }) => {
+  const [items, setItems] = useState(0);
+  const addToCart = () => setItems((items) => items + 1);
 
-const CartProvider = ({children}) =>
-<CartContext.Provider
-   value ={{
-    cartItems: 4,
-    logger : console.log("logged In...")
-   }}>
+  return (
+    <CartContext.Provider value={{ items, addToCart }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
 
-</CartContext.Provider>
+const useCart = () => useContext(CartContext);
 
-export {CartContext, CartProvider};
+export { useCart, CartProvider };
