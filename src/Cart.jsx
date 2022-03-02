@@ -1,6 +1,9 @@
 import { useCart } from "./CartContext";
+import { useLanguage } from "./LocaliseContext";
+import { LanguageLib } from "./LanguageLib";
 
-export function Cart() {
+export const Cart = () => {
   const { items } = useCart();
-  return <h1> Items in cart {items}</h1>;
-}
+  const { language } = useLanguage();
+  return <h1>{`${LanguageLib[language]["cart"]} ${items}`}</h1>;
+};

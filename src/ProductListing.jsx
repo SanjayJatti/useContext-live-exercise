@@ -1,6 +1,6 @@
 import { useCart } from "./CartContext";
 
-export function ProductListing() {
+export const ProductListing = () => {
   const { addToCart } = useCart();
   return ["1", "2", "3", "4"].map((item) => (
     <div key={item}>
@@ -8,4 +8,4 @@ export function ProductListing() {
       <button onClick={() => addToCart()}>Add to Cart</button>
     </div>
   ));
-}
+};
